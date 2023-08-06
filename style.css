@@ -10,7 +10,7 @@
   --primary-font: "Roboto", sans-serif;
   --hero-font: "Roboto Mono", monospace;
   --nav-color: #06b6d4;
-  --text-color: #475569;
+  --nav-text-color: #2a333f;
   --para-color: #1e293b;
   --hero-text: #020617;
 }
@@ -26,11 +26,10 @@ nav {
   list-style: none;
   padding: 20px;
   font-size: 1.2em;
-  outline: 2px solid red;
 }
 .nav-btn {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--nav-text-color);
 }
 .nav-btn:hover {
   color: var(--hero-text);
@@ -60,7 +59,12 @@ nav {
   display: block;
   font-family: var(--hero-font);
 }
-.intro-text {
+.name {
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 1),
+    5px 4px 0px rgba(0, 0, 0, 0.15);
+}
+.intro-text,
+.project-info > p {
   margin: 15px auto;
   color: var(--para-color);
   line-height: 1.5rem;
@@ -69,7 +73,6 @@ nav {
 }
 .icons {
   float: right;
-
   padding: 5px;
   display: flex;
   gap: 20px;
@@ -81,34 +84,167 @@ nav {
   padding: 2px;
   text-decoration: none;
 }
-.icons > a:hover {
+.icons > a:hover,
+.social-contact > a:hover {
   transition: ease-out 0.2s;
   transform: scale(1.2);
   border-radius: 5px;
 }
 main {
+  margin-top: 50px;
   padding: 20px 70px;
 }
 .projects {
-  outline: 2px solid red;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  margin: 20px auto;
 }
 .project {
-  background: blue;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .project img {
   width: 100%;
   object-fit: contain;
 }
-.project-info{
+.project-info {
   padding: 10px 30px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
-.project-info svg{
-  width: 20px;
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.project-links svg {
+  width: 30px;
+  cursor: pointer;
+}
+.project-links svg:hover {
+  transition: ease-in-out 0.2s;
+  transform: scale(1.2);
+  border-radius: 5px;
+}
+.project-links a {
+  text-decoration: none;
+  padding: 0px 10px;
+}
+#work,
+#contact-text {
+  font-family: var(--hero-font);
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 1),
+    5px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+section {
+  padding: 70px 70px;
+  background: var(--nav-color);
+  color: var(--para-color);
+  font-family: var(--hero-font);
+}
+#contact-text {
+  font-size: 2rem;
+}
+#contact {
+  display: flex;
+  justify-content: space-between;
+  padding: 70px auto;
+  gap: 17px;
+}
+#contact > img {
+  max-width: 550px;
+}
+.direct-contact svg {
+  width: 22px;
+}
+.direct-contact > li > span {
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+#contact p > span {
+  display: block;
+}
+#contact p {
+  margin: 30px 0px;
+  font-size: 1.2rem;
+  text-align: start;
+}
+.direct-contact > li {
+  list-style: none;
+  text-align: start;
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0px;
+}
+.social-contact {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: start;
+}
+.social-contact > a {
+  font-size: 2rem;
+  text-decoration: none;
+}
+@media screen and (max-width: 1245px) {
+  .profile-pic {
+    width: 50%;
+  }
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .hero-text {
+    font-size: 1.2rem;
+  }
+  .intro-text {
+    font-size: 0.8rem;
+  }
+
+  .project-info {
+    font-size: 0.8rem;
+  }
+  .about {
+    height: 400px;
+    font-size: 0.5rem;
+  }
+  #contact img {
+    width: 380px;
+    object-fit: cover;
+  }
+}
+@media screen and (max-width: 770px) {
+  nav {
+    display: none;
+  }
+  .project-info p{
+    font-size: 1rem;
+  }
+  .intro-container {
+    flex-direction: column;
+  }
+  .profile-pic {
+    width: 100%;
+  }
+  .about {
+    height: auto;
+  }
+}
+@media screen and (max-width: 425px) {
+  #contact {
+    flex-direction: column;
+  }
+.project-info p {
+  font-size: 0.8rem;
+}
+  #contact img {
+    width: auto;
+  }
 }
